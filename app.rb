@@ -1,4 +1,5 @@
 require_relative 'config/environment'
+require 'pry'
 
 class App < Sinatra::Base
   get '/' do
@@ -9,6 +10,7 @@ class App < Sinatra::Base
     @student = Student.new(params[:student])
 
     params[:student][:courses].each do |details|
+      binding.pry
       Course.new(details)
     end
    
